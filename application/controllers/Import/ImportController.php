@@ -45,8 +45,9 @@ class ImportController extends CI_Controller {
                         $fees = $row[5];
                         $paid = $row[6];
                         $due = $row [7];
-                        $selectedDate = $this->input->post('date_field1');
+                       $selectedDate = $this->input->post('date_field1');
                         // Use CodeIgniter's Query Builder to insert data
+                        
                         $student_data = array(
                             'Admno' =>  $admno,
                             'student_name' => $stdname,
@@ -62,6 +63,8 @@ class ImportController extends CI_Controller {
                     
         
                         $this->db->insert('students', $student_data);
+
+                        $msg=true;
     
                     }
                     else
@@ -126,7 +129,9 @@ class ImportController extends CI_Controller {
                         $fees = $row[5];
                         $paid = $row[6];
                         $due = $row [7];
-                        $selectedDate = $this->input->post('date_filed2');
+                      
+                        $selectedDate = $this->input->post('date_field2');
+
                         // Use CodeIgniter's Query Builder to insert data
                         $student_data = array(
                             'Admno' =>  $admno,
@@ -160,7 +165,7 @@ class ImportController extends CI_Controller {
                 
                 else
                 {
-                   // $this->session->set_flashdata('message1', 'Not Imported'); // Sets a session message for import failure.
+                   $this->session->set_flashdata('message1', 'Not Imported'); // Sets a session message for import failure.
                    redirect(base_url('import')); // Redirects to the 'index' method of your controller.
                 }
             }

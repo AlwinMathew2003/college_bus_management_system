@@ -151,7 +151,7 @@
     </style>   
 <body>
 <div class="wrapper">
-  <form class="login" action="welcome/form" method="post">
+  <form class="login" action="<?= base_url('ProcessController/processLogin') ?>" method="post">
     <p class="title">Log in</p>
     <input type="text" placeholder="Username" autofocus name="username"/>
     <i class="fa fa-user"></i>

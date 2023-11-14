@@ -55,7 +55,7 @@
             <h1>Registration Form</h1>
           </div>
           <div class="panel-body">
-            <form action=<?php echo base_url('')?> method = 'post'>
+            <form action=<?php echo base_url('welcome/user')?> method = 'post'>
                 <div class="padding">
               <div class="form-group">
                 <label for="number">Admission Number</label><br>

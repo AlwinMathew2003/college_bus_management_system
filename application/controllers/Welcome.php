@@ -31,6 +31,10 @@ class Welcome extends CI_Controller {
 		{
 			$this->load->view('Form/form');
 		}
+		public function user()
+		{
+			$this->load->view('dashboard/user');
+		}
 		public function insert()
 		{
 			$data= [

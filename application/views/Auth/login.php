@@ -153,9 +153,9 @@
 <div class="wrapper">
   <form class="login" action="<?= base_url('ProcessController/processLogin') ?>" method="post">
     <p class="title">Log in</p>
-    <input type="text" placeholder="Username" autofocus name="username"/>
+    <input type="text" placeholder="Username" autofocus name="username" required/>
     <i class="fa fa-user"></i>
-    <input type="password" placeholder="Password" name="password" />
+    <input type="password" placeholder="Password" name="password" required/>
     <i class="fa fa-key"></i>
    <div>
     <button type="submit">
@@ -164,9 +164,9 @@
     </button>
     <div class="social_login">
             <div class="">
-                <a href="#" class="social_box google">
+                <a href="<?= base_url('Welcome/form') ?>" class="social_box google">
                     <span class="icon"><i class="fab fa-google-plus"></i></span>
-                    <span class="icon_title">Google login</span>
+                    <span class="icon_title">Register now</span>
                 </a>
             </div>
         </div>

@@ -14,6 +14,11 @@ class ProcessController extends CI_Controller {
             redirect('welcome/admin'); // Assuming 'welcome' is your controller and 'admin' is the admin page method
         } 
         
+        else if ($username == 'coordinator' && $password == 'password') {
+            // User is an admin, redirect to the admin page
+            redirect('welcome/coordinator'); // Assuming 'welcome' is your controller and 'admin' is the admin page method
+        } 
+
         else {
             // Invalid credentials, redirect back to the login page with an error message
             redirect('welcome/form'); // Assuming 'welcome' is your controller and 'form' is the login page method

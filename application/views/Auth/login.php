@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -172,5 +172,102 @@
         </div>
     </form>
 </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Muhamad Nauval Azhar">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description" content="This is a login page template based on Bootstrap 5">
+	<title>Bootstrap 5 Login Page</title>
+	<link rel="stylesheet" href="<?php echo site_url();?>assets/all.css">
+	<link rel="stylesheet" href="<?php echo site_url();?>assets/toast/toast.min.css">
+	<script src="<?php echo site_url();?>assets/toast/jqm.js"></script>
+	<script src="<?php echo site_url();?>assets/toast/toast.js"></script>
+	<style>
+		body {
+			font-family: "Open Sans", sans-serif;
+			height: 90vh;
+			background: url("https://images.shiksha.com/mediadata/images/1500011166phpiuET42.jpeg") 50% fixed;
+			background-size: cover;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			
+		}
+		.card-footer{
+			background: rgb(38, 107, 181);
+			
+		}
+		
+		.container {
+			background: white;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 500px;
+			border-radius:10px;
+			
+		}
+		.button-container {
+			margin-top: auto; 
+			display: flex;
+			justify-content: center;
+			
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="card-body p-5">
+				<h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
+				<?php echo form_open('Auth/login_form'); ?>
+				<div class="mb-3">
+					<label class="mb-2 text-muted" for="email"><b>Email</b></label>
+					<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+				</div>
+
+				<div class="mb-3">
+					<label class="mb-2 text-muted" for="password"><b>Password</b></label>
+					<input id="password" type="password" class="form-control" name="password" required>
+				</div>
+
+				<div class="button-container">
+					<button type="submit" class="btn btn-primary">
+						Login
+					</button>
+				</div>
+				<?php echo form_close(); ?>
+			</div>
+			<div class="card-footer py-3 border-0">
+				<div class="text-center text-white">
+					Don't have an account? <a href="<?= base_url('welcome/form') ?>" class="text-white">Create One</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		<?php if($this->session->flashdata('suc')){ ?>
+		toastr.success("<?php echo $this->session->flashdata('suc'); ?>");
+		<?php }else if($this->session->flashdata('worng')){  ?>
+		toastr.error("<?php echo $this->session->flashdata('worng'); ?>");
+		<?php }else if($this->session->flashdata('warning')){  ?>
+		toastr.warning("<?php echo $this->session->flashdata('warning'); ?>");
+		<?php }else if($this->session->flashdata('info')){  ?>
+		toastr.info("<?php echo $this->session->flashdata('info'); ?>");
+		<?php } ?>
+		<?php
+		$this->session->unset_userdata ( 'suc' ); ?>
+
+		<?php
+		$this->session->unset_userdata ( 'worng' ); ?>
+	</script>
 </body>
 </html>

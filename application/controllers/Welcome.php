@@ -27,6 +27,10 @@ class Welcome extends CI_Controller {
 		{
 			$this->load->view('dashboard/admin');
 		}
+		public function coordinator()
+		{
+			$this->load->view('dashboard/coordinator');
+		}
 		public function form()
 		{
 			$this->load->view('Form/form');

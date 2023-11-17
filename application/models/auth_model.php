@@ -32,21 +32,18 @@ class auth_model extends CI_Model{
 
         }
 
-
-
     }
-
     public function login_user(){
-        $email = $this->input->post('email');
+        $username = $this->input->post('username');
         $password = $this->input->post('password');
     
         // Check if the user is an admin
-        if ($email == 'admin@gmail.com' && $password == 'adminpassword') {
+        if ($username == 'admin@gmail.com' && $password == 'adminpassword') {
             // User is an admin, redirect to the admin page
             redirect('welcome/admin'); // Assuming 'welcome' is your controller and 'admin' is the admin page method
         } else {
             // Not an admin, check regular user
-            $this->db->where('email', $email);
+            $this->db->where('Admno', $username);
             $this->db->where('password', $password);
             $query = $this->db->get('users');
             $find_user = $query->num_rows();

@@ -115,15 +115,7 @@
                 <div class="row g-4">
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
-                        <?php
-                if(isset($_SESSION['message']))
-                {
-                    $class = ($_SESSION['status'] === 'success') ? 'alert alert-success' : 'alert alert-danger';
-                    echo '<div class="' . $class . '" role="alert">' . $_SESSION['message'] . '</div>';
-                    unset($_SESSION['message']);
-                    unset($_SESSION['status']);
-                }
-            ?>
+
                 <div class="card">
 
                 <div class="card-header blue-header">

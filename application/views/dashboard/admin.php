@@ -151,46 +151,24 @@
                             <thead>
                                 <tr class="text-dark">
                                     
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Bus_number</th>
+                                    <th scope="col">Coordinator_id</th>
                                     <th scope="col">Coordinator_name</th>
+                                    <th scope="col">mobile_no</th>
+                                    <th scope="col">Bus_number</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    
-                                    <td>01 Jan 2045</td>
-                                    <td>1</td>
-                                    <td>Alwin Mathew</td>
-                                    <td>Active</td>
-
-                                </tr>
-                                <tr>
-                                <td>01 Jan 2045</td>
-                                    <td>2</td>
-                                    <td>Abin Bijoy</td>
-                                    <td>Active</td>
-                                </tr>
-                                <tr>
-                                <td>01 Jan 2045</td>
-                                    <td>3</td>
-                                    <td>Akhil Jose</td>
-                                    <td>Active</td>
-                                </tr>
-                                <tr>
-                                <td>01 Jan 2045</td>
-                                    <td>4</td>
-                                    <td>Evin Babu</td>
-                                    <td>Active</td>
-                                </tr>
-                                <tr>
-                                <td>01 Jan 2045</td>
-                                    <td>5</td>
-                                    <td>Jerin Jaison</td>
-                                    <td>Active</td>
-                                </tr>
-                            </tbody>
+        <tbody>
+                <?php foreach ($result as $row): ?>
+                <tr>
+                    <td><?= $row->coordinator_id ?></td>
+                    <td><?= $row->name ?></td>
+                    <td><?= $row->phone_number ?></td>
+                    <td><?= $row->busid ?></td>
+                    <td><?= $row->status ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
                         </table>
                     </div>
 

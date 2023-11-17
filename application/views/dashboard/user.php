@@ -98,7 +98,7 @@ https://templatemo.com/tm-570-chain-app-dev
                             <li class="scroll-to-section"><a href="#pricing">FEE</a></li>
                             <li class="scroll-to-section"><a href="#newsletter">REQUEST FORM</a></li>
                             <li>
-                                <div class="gradient-button"><a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> SIGN OUT</a></div>
+                                <div class="gradient-button"><a id="modal_trigger" href="<?php echo base_url(" "); ?>"><i class="fa fa-sign-in-alt"></i> SIGN OUT</a></div>
                             </li>
                         </ul>
                         <a class='menu-trigger'>

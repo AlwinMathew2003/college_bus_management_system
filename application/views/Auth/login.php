@@ -229,8 +229,8 @@
 				<h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
 				<?php echo form_open('Auth/login_form'); ?>
 				<div class="mb-3">
-					<label class="mb-2 text-muted" for="email"><b>Email</b></label>
-					<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+					<label class="mb-2 text-muted" for="username"><b>Username</b></label>
+					<input id="username" type="username" class="form-control" name="username" value="" required autofocus>
 				</div>
 
 				<div class="mb-3">

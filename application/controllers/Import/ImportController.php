@@ -10,12 +10,14 @@ class ImportController extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('session');
+        $this->load->model('Welcome_model');
+
     }
 
     public function index() {
        $this->load->view('Import/import');
     }
-
+    
     public function import() {
         if(isset($_POST['save_excel_data1'])) // Checking if the form with the name 'save_excel_data' was submitted.
         {

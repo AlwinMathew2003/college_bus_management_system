@@ -3,6 +3,8 @@
   <head>
     <style>
       body {
+        background: url("https://images.shiksha.com/mediadata/images/1500011166phpiuET42.jpeg") 50% fixed;
+			  background-size: cover;
         background-color: #f2f2f2; /* Set the background color */
         display: flex;
         justify-content: center;
@@ -18,48 +20,81 @@
         width: 80%; /* Reduce the width of the container */
       }}
       .panel {
-        border: 2px solid #3498db; /* Add a border */
-        background-color: #ffffff; /* Set the background color */
-      }
+  border: 2px solid #1e90ff; /* Add a border */
+  border-radius: 10px;
+  background: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0)), linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0)); /* Set the background gradients */
+}
+/* //#00ffcc, #1e90ff */
       .panel-heading {
-        background-color: #3498db; /* Set the heading background color */
+        background: #1e90ff;
         color: #ffffff; /* Set the heading text color */
         text-align: center; /* Center align the heading text */
         padding: 15px; /* Add some padding to the heading */
+        border-radius: 10px;
       }
+      /* }linear-gradient(to right,#00ffcc, #1e90ff , #00ffcc), linear-gradient(to left, #00ffcc, #1e90ff, #00ffcc); Set the background gradients */
       .form-group {
-        margin-bottom: 20px; /* Add some spacing between form groups */
-      }
+  margin-bottom: 20px; /* Add some spacing between form groups */
+  color: #333; /* Set the font color to dark */
+  font-weight: bold; /* Make the font bold */
+  font-size: 16px; /* Increase the font size */
+}
+
+
+       
       .form-control {
-        width: 90%; /* Make the text fields fit the form width */
-      }
+    width: 90%; /* Make the text fields fit the form width */
+    border-radius: 20px; /* Set border-radius to make it oval-shaped */
+    padding: 10px; /* Add padding for better aesthetics */
+    border: 2px solid grey; /* Add a border color */
+    font-size: 10px; /* Set the font size */
+    outline: none; /* Remove default outline */
+}
+
+
+
+.form-control::placeholder {
+  font-size: 14px;
+}
+
+/* Optionally, you can also adjust the color of the placeholder text */
+.form-control::placeholder {
+  color: #D3D3D3; /* Change the color to a desired value */
+}
+
+/* Optional: Add a box shadow for a more pronounced effect */
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(30, 144, 255, 0.8); /* Add a box shadow on focus */
+}
       .btn-primary {
-        background-color: #3498db; /* Set the button background color */
-        border-color: #3498db; /* Set the button border color */
+        background-color: #1e90ff; /* Set the button background color */
+        border-color: navy; /* Set the button border color */
       }
       .btn-primary:hover {
-        background-color: #2980b9; /* Change button color on hover */
-        border-color: #2980b9;
+        background-color: #1e90ff; /* Change button color on hover */
+        border-color: #1e90ff;
       }
       .padding{
         padding: 15px;
       }
-      .alert {
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-        }
-        .alert-success {
-            color: #3c763d;
-            background-color: #dff0d8;
-            border-color: #d6e9c6;
-        }
-        .alert-error {
-            color: #a94442;
-            background-color: #f2dede;
-            border-color: #ebccd1;
-        }
+      input[type="submit"] {
+  background:#ffffff ;/* Dark neon gradient */
+  border: 1px solid blue; /* Neon border color */
+  color: black; /* White text color */
+  padding: 10px 20px; /* Adjust padding for better aesthetics */
+  border-radius: 10px; /* Add border-radius for rounded corners */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background 0.3s ease, border-color 0.3s ease; /* Shorthand transition property */
+}
+
+input[type="submit"]:hover {
+  background: #1e90ff;
+  color: #ffffff; /* White text color */
+  border-color: #1e90ff; /* Dark neon border color on hover */
+}
+
+
+
     </style>
 
     <meta charset="UTF-8">
@@ -80,23 +115,22 @@
                 <div class="padding">
               <div class="form-group">
                 <label for="number">Admission Number</label><br>
-                <input type="text" class="form-control" id="admno" name="admno" required/>
+                <input type="text" class="form-control" id="admno" placeholder="admission number" name="admno" required/>
               </div>
               <div class="form-group">
                 <label for="firstName">Full Name</label><br>
-                <input type="text" class="form-control" id="name" name="name" required/>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Full name" required/>
               </div>
               <div class="form-group">
                 <label for="firstName">Branch</label><br>
-                <input type="text" class="form-control" id="branch" name="branch" required/>
+                <input type="text" class="form-control" id="branch" name="branch" placeholder="Branch" required/>
               </div>
               <div class="form-group">
                 <label for="firstName">Semester</label><br>
-                <input type="text" class="form-control" id="sem" name="sem" required/>
+                <input type="text" class="form-control" id="sem" name="sem" placeholder="semester" required/>
               </div>
               <div class="form-group">
               
-                <label for="gender">Gender</label><br>
                 <div class="padding1">
                   <label for="male" class="radio-inline" >
                     <input  type="radio" name="gender" value="m" id="male" required/>Male</label >
@@ -106,30 +140,26 @@
               </div><br>
               <div class="form-group">
                 <label for="email">Email</label><br>
-                <input type="email" class="form-control" id="email" name="email" required/>
+                <input type="email" class="form-control" id="email" name="email" placeholder="email address" required/>
               </div>
               <div class="form-group">
                 <label for="number">Phone Number</label><br>
-                <input type="number" class="form-control" id="number" name="number" required/>
+                <input type="number" class="form-control" id="number" name="number" placeholder="phone number" required/>
               </div>
               <div class="form-group">
-                <label for="type">Type of Pass</label><br>
                 <div>
                   <label for="type" class="radio-inline"
                     ><input type="radio" name="type" value="w" id="weekly" required/>Weekly</label>
                   <label for="type" class="radio-inline">
-                    <input type="radio" name="type" value="s" id="sem" required/>Sem</label ><br>
+                    <input type="radio" name="type" value="s" id="sem" required/>Sem</label >
                 </div>
               </div>
-              <br>
               
-
-
 
               <div class="form-group">
                         <label>Bus</label>
-                        <select name="bus_name" id="bus_name" class="form-control" required>
-                            <option value="">select</option>
+                        <select name="bus_name" id="bus_name" class="form-control" placeholder="select" required>
+                        <option>select</option>
                             <?php
                             foreach ($bus as $row) {
                             ?>
@@ -149,40 +179,13 @@
                     </div>
 
 
-              <input type="submit" value="Submit"/>
+              <input id ='submit' type="submit" value="Submit"/>
     </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-    <?php if ($this->session->flashdata('status') == 'success'): ?>
-        <script>
-            // Display a success alert
-            alert("<?php echo $this->session->flashdata('message'); ?>");
-        </script>
-    <?php elseif ($this->session->flashdata('status') == 'error'): ?>
-        <script>
-            // Display an error alert
-            alert("<?php echo $this->session->flashdata('message'); ?>");
-        </script>
-    <?php endif; ?>
-
-    <script>
-        $(document).ready(function(){
-            // Check if 'status' flash data is set to 'success'
-            <?php if ($this->session->flashdata('status') == 'success'): ?>
-                // Display a popup alert with the success message
-                alert("<?php echo $this->session->flashdata('message'); ?>");
-            <?php endif; ?>
-
-            // Check if 'status' flash data is set to 'error'
-            <?php if ($this->session->flashdata('status') == 'error'): ?>
-                // Display a popup alert with the error message
-                alert("<?php echo $this->session->flashdata('message'); ?>");
-            <?php endif; ?>
-        });
-    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
 $("#bus_name").change(function() {
@@ -208,6 +211,12 @@ $("#bus_name").change(function() {
                 $("#stop_name").append("<option value='" + $datas + "'>" + $datas + "</option>");
             });
         }
+    });
+    $("#submit").click(function() {
+      // Display an alert on button click
+      alert("Registration Successful..!\n(Default Password:PASS)\nNote:You Can Only Login After Admin Approval.");
+      
+    
     });
 });
 </script>

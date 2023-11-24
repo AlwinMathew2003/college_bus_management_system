@@ -34,7 +34,7 @@ class ImportController extends CI_Controller {
         
                 $count = "0"; // Initializes a count variable.
 
-
+                $this->db->truncate('students');
                 foreach($data as $row) // Iterates through the rows of data in the Excel file.
                 {
                     if($count > 0) // Checks if it's not the header row (assuming header row is row 0).
@@ -63,7 +63,7 @@ class ImportController extends CI_Controller {
                             
                         );
                     
-        
+                        
                         $this->db->insert('students', $student_data);
 
                         $msg=true;
@@ -118,7 +118,7 @@ class ImportController extends CI_Controller {
                 $data = $spreadsheet->getActiveSheet()->toArray(); // Converts the Excel data into an array.
         
                 $count = "0"; // Initializes a count variable.
-
+                $this->db->truncate('daily_students');
                 foreach($data as $row) // Iterates through the rows of data in the Excel file.
                 {
                     if($count > 0) // Checks if it's not the header row (assuming header row is row 0).
@@ -147,7 +147,8 @@ class ImportController extends CI_Controller {
                             'Date' => $selectedDate
                             
                         );
-        
+                        
+                        
                         $this->db->insert('daily_students', $student_data);
         
                         $msg = true;

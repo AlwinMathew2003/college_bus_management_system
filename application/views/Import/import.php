@@ -72,7 +72,7 @@
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <!-- <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a> -->
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="<?php echo base_url(""); ?>" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -115,6 +115,15 @@
                 <div class="row g-4">
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
+                        <?php
+                if(isset($_SESSION['message']))
+                {
+                    $class = ($_SESSION['status'] === 'success') ? 'alert alert-success' : 'alert alert-danger';
+                    echo '<div class="' . $class . '" role="alert">' . $_SESSION['message'] . '</div>';
+                    unset($_SESSION['message']);
+                    unset($_SESSION['status']);
+                }
+            ?>
 
                 <div class="card">
 

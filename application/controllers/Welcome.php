@@ -6,6 +6,8 @@ class Welcome extends CI_Controller {
     	public function __construct() {
        		parent::__construct();
         	$this->load->model('Welcome_model');
+			$this->load->model('Details_model');
+			$this->load->model('User_model');
     	}
 
 		public function index()
@@ -14,13 +16,67 @@ class Welcome extends CI_Controller {
 		}
 		public function admin()
 		{
+			// $this->load->model('auth_model');
+			$data['bus'] = $this->User_model->getbus();
+			$data['total_users'] = $this->User_model->getUsers();
 			$data['result'] = $this->Welcome_model->get_data();
+			$data['total_count'] = $this->User_model->getPaid();
+			$data['total_count1'] = $this->User_model->getDue();
 			$this->load->view('dashboard/admin',$data);
 		}
 		public function coordinator()
-		{
-			$this->load->view('dashboard/coordinator');
+		{ 
+			
+			// Retrieve coordinator details from session
+		$coordinator_details = $this->session->userdata('coordinator_details');
+	  // Load the Details_model
+	  $this->load->model('Details_model');
+
+	  // Get the pending requests from the details table
+	  $data['pending_requests'] = $this->Details_model->getPendingRequests();
+  
+	  // Pass coordinator details and pending requests to the coordinator dashboard view
+	  $this->load->view('dashboard/coordinator', array('coordinator_details' => $coordinator_details, 'pending_requests' => $data['pending_requests']));
 		}
+
+
+		public function updateStatus() {
+			if ($this->input->is_ajax_request()) {
+				$userId = $this->input->post('userId');
+
+				// Load your model
+				$this->load->model('Details_model'); // Replace 'Your_Model' with your actual model name
+				$this->Details_model->updateStatus($userId);
+
+	
+				echo 'User ID ' . $userId . ' status updated successfully';
+			} else {
+				show_404(); // Handle non-AJAX requests if necessary
+			}
+		}
+
+		public function c_attendace()
+		{ 
+			$coordinator_details = $this->session->userdata('coordinator_details');
+
+			// Load the coordinator dashboard view and pass the details
+			$bus_id = $coordinator_details['bus_id'];
+
+			$this->db->where('bus_id', $bus_id);
+			$query_students = $this->db->get('details');
+
+			// Get the result as an array
+			$result_students = $query_students->result_array();
+			// Pass data to the view
+			$data = array(
+    		'coordinator_details' => $coordinator_details,
+    		'result_students' => $result_students
+			);
+
+			// Load the view and pass the data
+			$this->load->view('dashboard/attendance', $data);
+		}
+
 		public function form()
 		{
 			$this->load->model('Welcome_model');
@@ -50,25 +106,31 @@ class Welcome extends CI_Controller {
 				'gender' => $this->input->post('gender'),
 				'email' => $this->input->post('email'), 
 				'phno' => $this->input->post('number'),
+				'type' => $this->input->post('type'),
+				'bus_id' => $this->input->post('bus_name'), 
+				'stop' => $this->input->post('stop_name'),
 			];
 		
 		$msg=TRUE;
 		$this->load->model('Welcome_model');
 		$this->Welcome_model->insert_welcome_model($data);
-		if (isset($msg)) { // Checks if the 'msg' flag is set (indicating successful import).
-			$this->session->set_flashdata('status', 'success');
-			$this->session->set_flashdata('message', 'Registration successful, Your default password is "PASS". You can login only when coordinator approves your request'); // Sets a session message.
-			
-			// Redirects to the 'form' method of your controller.
-			redirect(base_url(''));
-		} else {
-			$this->session->set_flashdata('status', 'error');
-			$this->session->set_flashdata('message', 'Something went wrong'); // Sets a session message for an invalid file.
-			
-			// Redirects to the 'index' method of your controller.
-			redirect(base_url(''));
+		redirect(base_url(''));
 		}
-
+		public function logout() {
+		
+			// Load the session library if not autoloaded
+			$this->load->library('session');
+		
+			// Destroy the session
+			$this->session->sess_destroy();
+		
+			// Set headers to prevent caching
+			$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
+			$this->output->set_header('Pragma: no-cache');
+			 $this->output->set_header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
+		
+			// Redirect to the login page
+			redirect('welcome');
 		}
 	
 }

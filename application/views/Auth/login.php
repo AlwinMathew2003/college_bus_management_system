@@ -204,15 +204,15 @@
 		}
 		
 		.container {
-			background: white;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			width: 500px;
-			border-radius:10px;
-			
-		}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8); /* Set the background color with transparency */
+}
+
 		.button-container {
 			margin-top: auto; 
 			display: flex;
@@ -230,12 +230,12 @@
 				<?php echo form_open('Auth/login_form'); ?>
 				<div class="mb-3">
 					<label class="mb-2 text-muted" for="username"><b>Username</b></label>
-					<input id="username" type="username" class="form-control" name="username" value="" required autofocus>
+					<input id="username" type="username" class="form-control" name="username" placeholder="username" value="" required autofocus>
 				</div>
 
 				<div class="mb-3">
 					<label class="mb-2 text-muted" for="password"><b>Password</b></label>
-					<input id="password" type="password" class="form-control" name="password" required>
+					<input id="password" type="password" class="form-control" name="password" placeholder="password" required>
 				</div>
 
 				<div class="button-container">

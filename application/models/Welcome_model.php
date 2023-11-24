@@ -6,16 +6,7 @@ class Welcome_model extends CI_Model {
     public function insert_welcome_model($data)
     {
         $this->db->insert('details',$data);
-        if ($this->db->affected_rows() > 0) {
-            // If successful, also insert into the 'login' table
-            $login_data = [
-                'Admno' => $data['admno'],
-                'email' => $data['email']
-            ];
-            $this->db->insert('users', $login_data);
-
-            return true;
-        }
+        return true;
     }
 
 
